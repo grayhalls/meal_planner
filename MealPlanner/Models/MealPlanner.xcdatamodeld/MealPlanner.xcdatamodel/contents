@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0">
+    <entity name="RecipeEntity" representedClassName="RecipeEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="cookTime" optional="NO" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="cuisine" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="instructions" optional="NO" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="isUserCreated" optional="NO" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="prepTime" optional="NO" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="recipeDescription" optional="YES" attributeType="String"/>
+        <attribute name="servings" optional="NO" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="title" optional="NO" attributeType="String"/>
+        <relationship name="ingredients" optional="NO" toMany="YES" deletionRule="Cascade" destinationEntity="IngredientEntity" inverseName="recipe" inverseEntity="IngredientEntity"/>
+    </entity>
+    <entity name="IngredientEntity" representedClassName="IngredientEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="NO" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="NO" attributeType="String"/>
+        <attribute name="unit" optional="NO" attributeType="String"/>
+        <relationship name="recipe" optional="NO" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeEntity" inverseName="ingredients" inverseEntity="RecipeEntity"/>
+    </entity>
+</model>
